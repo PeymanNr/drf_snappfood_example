@@ -50,3 +50,12 @@ class MyUser(AbstractUser):
         verbose_name_plural = _('users')
         db_table = 'users'
 
+
+class Seller(models.Model):
+    seller = models.ForeignKey(MyUser, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    shop_name = models.CharField(max_length=32)
+    vendor_first_name = models.CharField(max_length=32)
+    vendor_last_name = models.CharField(max_length=32)
+    phone_number = models.CharField(verbose_name='Mobile Number', unique=True, max_length=13)
+
