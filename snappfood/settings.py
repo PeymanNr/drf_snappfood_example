@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import datetime
 
-from .local_settings import *
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,6 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+SECRET_KEY = 'ha0)0ir!yq^ok$i_lknqselcnh*a1f%@9@mx@ils5^fhx3jl!%'
+
+
+DEBUG = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -77,8 +80,12 @@ WSGI_APPLICATION = 'snappfood.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'snappfood',
+        'USER': 'snappfood',
+        'PASSWORD': 'snappfood',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
