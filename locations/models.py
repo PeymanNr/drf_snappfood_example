@@ -8,6 +8,7 @@ class Country(BaseModel):
     name = models.CharField(max_length=32, verbose_name=_('country'))
 
     # TODO: add meta class
+    # TODO: add __str__
 
 
 class City(BaseModel):
@@ -15,6 +16,7 @@ class City(BaseModel):
     country = models.ForeignKey(Country, verbose_name=_('country'), related_name='cities', on_delete=models.CASCADE)
 
     # TODO : add meta class
+    # TODO: add __str__
 
 
 class Address(BaseModel):
