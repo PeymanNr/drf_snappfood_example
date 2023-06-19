@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin import register
-from account.models import MyUser, Seller
+from accounts.models import MyUser, Seller
 
 
 # Register your models here.

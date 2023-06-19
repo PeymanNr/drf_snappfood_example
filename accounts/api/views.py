@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
-from account.api.serializers import UserRegisterSerializer, UserLoginSerializer
+from accounts.api.serializers import UserRegisterSerializer, UserLoginSerializer
 from rest_framework.response import Response
 
 # Create your views here.

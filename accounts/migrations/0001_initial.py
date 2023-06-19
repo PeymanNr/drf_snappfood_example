@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 'db_table': 'users',
             },
             managers=[
-                ('objects', account.models.MyUserManager()),
+                ('objects', accounts.models.MyUserManager()),
             ],
         ),
         migrations.CreateModel(
