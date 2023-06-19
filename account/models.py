@@ -50,14 +50,3 @@ class MyUser(AbstractUser):
         verbose_name_plural = _('users')
         db_table = 'users'
 
-
-class Seller(models.Model):
-    seller = models.OneToOneField(MyUser, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.seller.phone_number
-
-    class Meta:
-        verbose_name = _('seller')
-        verbose_name_plural = _('sellers')
-        db_table = 'sellers'
