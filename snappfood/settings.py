@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
-
     'accounts',
     'locations',
 ]
@@ -82,9 +81,9 @@ WSGI_APPLICATION = 'snappfood.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'snappfood',
-        'USER': 'snappfood',
-        'PASSWORD': 'snappfood',
+        'NAME': 'sfood',
+        'USER': 'peyman',
+        'PASSWORD': '932319361',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -123,7 +122,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+AUTH_USER_MODEL = 'auth.User'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
