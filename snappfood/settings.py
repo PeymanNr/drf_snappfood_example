@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'snappfood.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sfood',
-        'USER': 'peyman',
-        'PASSWORD': '932319361',
+        'NAME': 'snappfood',
+        'USER': 'snappfood',
+        'PASSWORD': 'snappfood',
         'HOST': 'localhost',
         'PORT': '5432',
     }
