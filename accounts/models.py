@@ -13,13 +13,11 @@ class Restaurant(BaseModel):
     name = models.CharField(max_length=64, verbose_name=_('name'))
     address = models.ForeignKey(Address, verbose_name='address', on_delete=models.SET_NULL, null=True)
 
-    # TODO: add meta class
     class Meta:
         verbose_name = _('restaurant')
         verbose_name_plural = _('restaurants')
         db_table = 'restaurants'
 
-    # TODO: add __str__
     def __str__(self):
         return self.name
 
@@ -32,16 +30,13 @@ class Customer(BaseModel):
     user = models.OneToOneField(User, verbose_name=_('user'), on_delete=models.CASCADE)
     first_name = models.CharField(max_length=32, verbose_name=_('first_name'))
     last_name = models.CharField(max_length=32, verbose_name=_('last name'))
-    # TODO: add validator to validate the phone number of user
     phone = models.CharField(validators=[phone_regex], verbose_name="Phone Number", max_length=32)
     address = models.ForeignKey(Address, verbose_name=_('address'), on_delete=models.SET_NULL, null=True)
 
-    # TODO: add meta class
     class Meta:
         verbose_name = _('customer')
         verbose_name_plural = _('customers')
         db_table = 'customers'
-    # TODO: add __str__
 
     def __str__(self):
         return self.phone
