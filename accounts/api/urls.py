@@ -6,5 +6,4 @@ urlpatterns = [
     path('restaurant/register/', RestaurantRegisterAPIView.as_view(), name='restaurant-register'),
     path('restaurant/login/', LoginAPIView.as_view(), name='restaurant-login'),
     path('customer/login/', LoginAPIView.as_view(), name='customer-login'),
-
 ]

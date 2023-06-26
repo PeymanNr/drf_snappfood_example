@@ -63,4 +63,3 @@ class LoginAPIView(APIView):
                 'access': str(refresh.access_token),
             }, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-# TIP: DO NOT USER PHONE_NUMBER FOR ANY OF REGISTER OR LOGIN TASKS

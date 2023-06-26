@@ -6,7 +6,6 @@ from django.contrib.admin import register
 from locations.models import Address, City, Country
 
 
-# Register your models here.
 @register(Address)
 class UserAdmin(admin.ModelAdmin):
     list_display = ('id', 'city')

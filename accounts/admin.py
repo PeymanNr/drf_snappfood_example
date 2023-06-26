@@ -3,7 +3,6 @@ from django.contrib.admin import register
 from accounts.models import Customer, Restaurant
 
 
-# Register your models here.
 @register(Customer)
 class UserAdmin(admin.ModelAdmin):
     list_display = ('id', 'user')

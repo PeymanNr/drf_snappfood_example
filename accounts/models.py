@@ -16,7 +16,7 @@ class Restaurant(BaseModel):
     class Meta:
         verbose_name = _('restaurant')
         verbose_name_plural = _('restaurants')
-        db_table = 'restaurants'
+        db_table = 'restaurant'
 
     def __str__(self):
         return self.name
@@ -36,7 +36,7 @@ class Customer(BaseModel):
     class Meta:
         verbose_name = _('customer')
         verbose_name_plural = _('customers')
-        db_table = 'customers'
+        db_table = 'customer'
 
     def __str__(self):
         return self.phone

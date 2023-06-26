@@ -9,7 +9,7 @@ class Country(BaseModel):
     class Meta:
         verbose_name = _('Country')
         verbose_name_plural = _('Countries')
-        db_table = 'Countries'
+        db_table = 'Country'
 
     def __str__(self):
         return self.name
@@ -22,7 +22,7 @@ class City(BaseModel):
     class Meta:
         verbose_name = _('City')
         verbose_name_plural = _('Cities')
-        db_table = 'Cities'
+        db_table = 'City'
 
     def __str__(self):
         return self.name
@@ -35,4 +35,4 @@ class Address(BaseModel):
     class Meta:
         verbose_name = _('Address')
         verbose_name_plural = _('Addresses')
-        db_table = 'Addresses'
+        db_table = 'Address'
