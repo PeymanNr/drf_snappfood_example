@@ -6,4 +6,5 @@ from django.db import models
 #TODO: Add Models for restaurants app like Resturant model. menu, menu item, etc
 
 #TODO: add views to show the all restaurants by city and other parameters.
+# All the user authenticated or not can see the list of restaurants
 
