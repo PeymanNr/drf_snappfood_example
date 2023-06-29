@@ -3,7 +3,7 @@ from accounts.api.views import CustomerRegisterAPIView, RestaurantRegisterAPIVie
 
 urlpatterns = [
     path('customer/register/', CustomerRegisterAPIView.as_view(), name='customer-register'),
-    path('restaurant/register/', RestaurantRegisterAPIView.as_view(), name='restaurant-register'),
-    path('restaurant/login/', LoginAPIView.as_view(), name='restaurant-login'),
+    path('vendor/register/', RestaurantRegisterAPIView.as_view(), name='restaurant-register'),
+    path('vendor/login/', LoginAPIView.as_view(), name='restaurant-login'),
     path('customer/login/', LoginAPIView.as_view(), name='customer-login'),
 ]

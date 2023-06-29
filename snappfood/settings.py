@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'snappfood.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pemisp',
+        'NAME': 'pemirest',
         'USER': 'peyman',
         'PASSWORD': '932319361',
         'HOST': 'localhost',
