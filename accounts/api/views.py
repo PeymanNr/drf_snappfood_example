@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from accounts.api.serializers import CustomerRegisterSerializer, RestaurantRegisterSerializer, CustomerLoginSerializer, \
     RestaurantLoginSerializer
-from accounts.models import Customer, Restaurant
+from accounts.models import Customer, Vendor
 
 
 class CustomerRegisterAPIView(APIView):
@@ -49,7 +49,7 @@ class LoginAPIView(APIView):
         if Customer.objects.filter(user=user).exists():
             serializer = CustomerLoginSerializer(data=request.data)
 
-        elif Restaurant.objects.filter(user=user).exists():
+        elif Vendor.objects.filter(user=user).exists():
             serializer = RestaurantLoginSerializer(data=request.data)
         else:
             return Response({'error': 'User Not Register'}, status=status.HTTP_400_BAD_REQUEST)

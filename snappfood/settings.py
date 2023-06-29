@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
-
+    'django_filters',
     'accounts',
     'locations',
     'restaurants'
@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'snappfood.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'snappfood',
-        'USER': 'snappfood',
-        'PASSWORD': 'snappfood',
+        'NAME': 'pemisp',
+        'USER': 'peyman',
+        'PASSWORD': '932319361',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -136,6 +136,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',

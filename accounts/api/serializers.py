@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from accounts.models import Customer, Restaurant
+from accounts.models import Customer, Vendor
 from locations.models import Address, City
 
 
@@ -48,7 +48,7 @@ class RestaurantRegisterSerializer(serializers.ModelSerializer):
     address = AddressSerializer()
 
     class Meta:
-        model = Restaurant
+        model = Vendor
         fields = ['password', 'name', 'address']
 
     def create(self, validated_data):
@@ -56,7 +56,7 @@ class RestaurantRegisterSerializer(serializers.ModelSerializer):
         name = validated_data['name']
         address_data = validated_data['address']
 
-        if Restaurant.objects.filter(name=name).exists():
+        if Vendor.objects.filter(name=name).exists():
             raise serializers.ValidationError('This username is already in use.')
 
         user = User.objects.create_user(
@@ -67,7 +67,7 @@ class RestaurantRegisterSerializer(serializers.ModelSerializer):
         address_serializer.is_valid(raise_exception=True)
         address = address_serializer.save()
 
-        restaurant = Restaurant.objects.create(user=user, name=name, address=address)
+        restaurant = Vendor.objects.create(user=user, name=name, address=address)
 
         return restaurant
 
