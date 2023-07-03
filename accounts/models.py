@@ -8,15 +8,15 @@ from utils.base_models import BaseModel
 User = get_user_model()
 
 
-class Restaurant(BaseModel):
+class Vendor(BaseModel):
     user = models.OneToOneField(User, verbose_name=_('user'), on_delete=models.CASCADE)
     name = models.CharField(max_length=64, verbose_name=_('name'))
     address = models.ForeignKey(Address, verbose_name='address', on_delete=models.SET_NULL, null=True)
 
     class Meta:
-        verbose_name = _('restaurant')
-        verbose_name_plural = _('restaurants')
-        db_table = 'restaurant'
+        verbose_name = _('vendor')
+        verbose_name_plural = _('vendors')
+        db_table = 'vendor'
 
     def __str__(self):
         return self.name

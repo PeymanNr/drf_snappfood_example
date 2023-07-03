@@ -1,14 +1,24 @@
 from django.contrib import admin
 from django.contrib.admin import register
-from accounts.models import Customer, Restaurant
+from accounts.models import Customer, Vendor
+from restaurants.models import MenuItem, Menu
 
 
 @register(Customer)
-class UserAdmin(admin.ModelAdmin):
+class CustomerAdmin(admin.ModelAdmin):
     list_display = ('id', 'user')
 
 
-@register(Restaurant)
-class UserAdmin(admin.ModelAdmin):
+@register(Vendor)
+class VendorAdmin(admin.ModelAdmin):
     list_display = ('id', 'user')
 
+
+@register(Menu)
+class MenuAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+
+@register(MenuItem)
+class MenuItemAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price')

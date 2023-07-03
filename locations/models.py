@@ -36,3 +36,7 @@ class Address(BaseModel):
         verbose_name = _('Address')
         verbose_name_plural = _('Addresses')
         db_table = 'Address'
+
+    def __str__(self):
+        return self.description
+
