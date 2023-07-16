@@ -1,8 +1,9 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
-from restaurants.api.serializers import RestaurantListSerializer
+from orders.models import Order
+from restaurants.api.serializers import RestaurantListSerializer, OrderSerializer, OrderDetailSerializer
 from restaurants.models import Restaurant
 
 
@@ -13,3 +14,21 @@ class RestaurantListAPIView(ListAPIView):
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['address__city']
     search_fields = ['restaurant__menuitems__name']
+
+
+class RestaurantOrderMixin:
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        restaurant_id = self.request.user.vendor.restaurant.id
+        restaurant = Restaurant.objects.get(id=restaurant_id)
+        return Order.objects.filter(restaurant=restaurant)
+
+
+class RestaurantOrderListAPIView(RestaurantOrderMixin, ListAPIView):
+    serializer_class = OrderSerializer
+
+
+class RestaurantOrderRetrieveAPIView(RestaurantOrderMixin, RetrieveAPIView):
+    serializer_class = OrderDetailSerializer
+

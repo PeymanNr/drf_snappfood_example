@@ -1,11 +1,15 @@
 from django.contrib.auth import authenticate
 from rest_framework import status
+from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from accounts.api.serializers import CustomerRegisterSerializer, RestaurantRegisterSerializer, CustomerLoginSerializer, \
     RestaurantLoginSerializer
 from accounts.models import Customer, Vendor
+from orders.models import Order
+from restaurants.api.serializers import OrderDetailSerializer, OrderSerializer
 
 
 class CustomerRegisterAPIView(APIView):
@@ -63,3 +67,20 @@ class LoginAPIView(APIView):
                 'access': str(refresh.access_token),
             }, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class CustomerOrderMixin:
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        customer_id = self.request.user.id
+        customer = Customer.objects.get(id=customer_id)
+        return Order.objects.filter(customer=customer)
+
+
+class CustomerOrderListAPIView(CustomerOrderMixin, ListAPIView):
+    serializer_class = OrderSerializer
+
+
+class CustomerOrderRetrieveAPIView(CustomerOrderMixin, RetrieveAPIView):
+    serializer_class = OrderDetailSerializer
