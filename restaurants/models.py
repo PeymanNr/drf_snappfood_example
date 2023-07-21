@@ -1,16 +1,13 @@
 from django.db import models
 from django.utils.translation import ugettext as _
 from accounts.models import Vendor
-from locations.models import Address
 
 
 class Restaurant(models.Model):
     vendor = models.OneToOneField(Vendor, verbose_name=_('vendor'), on_delete=models.CASCADE)
-    name = models.CharField(max_length=64, verbose_name=_('name'))
-    address = models.ForeignKey(Address, max_length=128, verbose_name=_('address'), on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.vendor.name
 
     class Meta:
         verbose_name = _('restaurant')
