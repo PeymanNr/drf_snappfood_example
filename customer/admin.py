@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin import register
-from accounts.models import Customer, Vendor
+from customer.models import Customer, Vendor
 
 
 @register(Customer)

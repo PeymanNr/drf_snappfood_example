@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext as _
-from accounts.models import Customer
+from customer.models import Customer
 from restaurants.models import MenuItem, Restaurant
 from utils.base_models import BaseModel
 

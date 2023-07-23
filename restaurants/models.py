@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext as _
-from accounts.models import Vendor
+from customer.models import Vendor
 
 
 class Restaurant(models.Model):
