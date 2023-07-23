@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('restaurants', '0001_initial'),
-        ('accounts', '0001_initial'),
+        ('customer', '0001_initial'),
     ]
 
     operations = [
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('quantity', models.PositiveIntegerField(verbose_name='quantity')),
                 ('total_price', models.DecimalField(decimal_places=2, max_digits=8, verbose_name='total price')),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='accounts.customer', verbose_name='customer')),
+                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='customer.customer', verbose_name='customer')),
                 ('menu_item', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='restaurants.menuitem', verbose_name='menu item')),
                 ('restaurant', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='restaurants.restaurant', verbose_name='restaurant')),
             ],

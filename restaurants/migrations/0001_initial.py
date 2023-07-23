@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('locations', '0001_initial'),
-        ('accounts', '0001_initial'),
+        ('customer', '0001_initial'),
     ]
 
     operations = [
@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=64, verbose_name='name')),
                 ('address', models.ForeignKey(max_length=128, on_delete=django.db.models.deletion.CASCADE, to='locations.address', verbose_name='address')),
-                ('vendor', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='accounts.vendor', verbose_name='vendor')),
+                ('vendor', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='customer.vendor', verbose_name='vendor')),
             ],
             options={
                 'verbose_name': 'restaurant',
